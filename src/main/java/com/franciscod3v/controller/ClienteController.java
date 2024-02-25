@@ -15,8 +15,11 @@ import java.util.Map;
 @RequestMapping("api/v1")
 public class ClienteController {
 
-    @Autowired
-    private ICliente clienteService;
+    private final ICliente clienteService;
+
+    public ClienteController(ICliente clienteService) {
+        this.clienteService = clienteService;
+    }
 
     @PostMapping("cliente")
     @ResponseStatus(HttpStatus.CREATED)
